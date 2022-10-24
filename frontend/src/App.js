@@ -8,16 +8,22 @@ import PageContainer from "./components/Containers/PageContainer";
 import Navbar from "./components/Navbar/Navbar"
 import MobileNavbar from "./components/Navbar/MobileNavbar";
 
+//PAGES
+import Auth from "./pages/Auth";
+
 function App() {
   return <div className="App">
-    <PageContainer>
+    <PageContainer optionClass={"pageContainer"}>
       <Navbar className="navbar"/>
+      
+      <Routes>
+        <Route>
+          <Route path="/auth" element={<Auth/>}/>
+        </Route>
+      </Routes>
       <div className="mobileMenu">
         <MobileNavbar/>
       </div>
-      <Routes>
-        <Route></Route>
-      </Routes>
     </PageContainer>
     </div>;
 }
