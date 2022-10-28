@@ -3,6 +3,7 @@ import Searchbar from "../components/HomeContainer/Searchbar";
 import { Title } from "../components/Titles/Titles";
 import CategoryCard from "../components/Cards/CategoryCard";
 import TransactionCard from "../components/Cards/TransactionCard";
+import HomeProfile from "../components/HomeContainer/HomeProfile";
 
 import styles from "../styles/homeComponents/Home.module.scss"
 
@@ -41,6 +42,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <div className={styles.profile}><HomeProfile/></div>
         </MainContainer>
     )
 }

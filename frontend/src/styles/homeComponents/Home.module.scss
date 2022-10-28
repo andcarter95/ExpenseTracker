@@ -26,3 +26,10 @@
         gap: 2rem;
     }
 }
+
+.profile{
+    margin-top: 1.5rem;
+    @media screen and (max-width: 820px) {
+        display: none;
+    }
+}

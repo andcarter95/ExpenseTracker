@@ -9,7 +9,7 @@ const Navbar = () => {
     <div className={styles.container}>
       <div className={styles.logo}>
         <Link to="/">
-          <div>Tracker</div>
+          <div>Budget</div>
         </Link>
       </div>
       <nav>
