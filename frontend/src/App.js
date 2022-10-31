@@ -12,9 +12,16 @@ import MainContainer from "./components/Containers/MainContainer";
 import Auth from "./pages/Auth";
 import Home from "./pages/Home";
 
+//REACT QUERY
+import { ReactQueryDevtools } from "react-query/devtools";
+import { QueryClientProvider } from "react-query";
+import { queryClient } from "./constants/config";
+
+
 function App() {
   return (
     <div className="App">
+      <QueryClientProvider client={queryClient}>
       <PageContainer optionClass={"pageContainer"}>
         <Navbar className="navbar" />
         <Routes>
@@ -39,6 +46,7 @@ function App() {
 
         <MobileNavbar className="mobileMenu" />
       </PageContainer>
+      </QueryClientProvider>
     </div>
   );
 }
