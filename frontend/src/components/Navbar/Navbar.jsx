@@ -2,9 +2,27 @@ import styles from "../../styles/Navbar/Navbar.module.scss";
 
 import ListItemLink from "./ListItemLink";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
+
+import { useLogoutUser } from "../../queries/user";
+import { useEffect } from "react";
+import { queryClient } from "../../constants/config";
 
 const Navbar = () => {
+  const { setAuth, auth } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { mutate: logoutHandler, isSuccess } = useLogoutUser(); 
+
+  useEffect(() => {
+    if (isSuccess){
+      queryClient.removeQueries();
+      setAuth(false);
+      if(!auth) navigate("auth");
+    }
+  }, [isSuccess])
+
   return (
     <div className={styles.container}>
       <div className={styles.logo}>
@@ -42,7 +60,7 @@ const Navbar = () => {
             </ListItemLink>
           </div>
           
-          <ListItemLink url="logout">
+          <ListItemLink url="logout" clickHandler={logoutHandler}>
             <h3>Logout</h3>
           </ListItemLink>
         

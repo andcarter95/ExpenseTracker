@@ -5,6 +5,7 @@ const cors = require("cors");
 const path = require("path");
 
 const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -40,6 +41,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", authRoutes)
+app.use("/api", userRoutes)
 
 app.listen(port, () => {
     console.log(`SERVER STARTED : ${port}`);
