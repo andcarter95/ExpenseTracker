@@ -41,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "@types/luxon": "^3.0.2",
     "react-query": "^3.39.2"
   }
 }
