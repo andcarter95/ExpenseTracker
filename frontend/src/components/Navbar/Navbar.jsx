@@ -36,16 +36,12 @@ const Navbar = () => {
             <h3>Home</h3>
           </ListItemLink>
 
-          <ListItemLink url="catagories">
+          <ListItemLink url="categories">
             <h3>Categories</h3>
           </ListItemLink>
           
           <ListItemLink url="transactions">
             <h3>Transactions</h3>
-          </ListItemLink>
-          
-          <ListItemLink url="wallet">
-            <h3>Wallet</h3>
           </ListItemLink>
           
           <div className={styles.mobileMenuLinks}>

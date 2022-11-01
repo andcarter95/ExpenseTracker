@@ -1,31 +1,32 @@
 import { useQuery, useMutation } from "react-query";
-import Ax from "../utils/Axios"
+import Ax from "../utils/Axios";
 
-const deleteTr= async (params) => {
-    return await Ax.delete(`transaction/delete/${params}`)
-}
+//AXIOS CALLS
+const deleteTr = async (params) => {
+  return await Ax.delete(`transaction/delete/${params}`);
+};
 
 const getTrs = async (params) => {
-    return await Ax.get("transactions", { params: params }).catch((e) =>
-        console.log(e)
-    )
-}
+  return await Ax.get("transaction", { params: params }).catch((e) =>
+    console.log(e)
+  );
+};
 
 const postTr = async (params) => {
-    return await Ax.post("transaction", params)
-}
-
-const useTransactionDelete = () => useMutation("deleteTr", deleteTr)
+  return await Ax.post("transactions", params);
+};
+const useTransactionDelete = () => useMutation("deleteTr", deleteTr);
 const useTransactionsGet = ({
-    firstDate,
-    lastDate,
-    category,
-    dateSort,
-    priceSort,
-    skip,
-    take,
-    key,
-}) => useQuery(
+  firstDate,
+  lastDate,
+  category,
+  dateSort,
+  priceSort,
+  skip,
+  take,
+  key,
+}) =>
+  useQuery(
     key,
     () =>
       getTrs({
@@ -44,5 +45,5 @@ const useTransactionsGet = ({
     }
   );
 
-  const useTransactionPost = ()=> useMutation("postTransaction", postTr)
-  export { useTransactionsGet, useTransactionPost, useTransactionDelete }
+const useTransactionPost = () => useMutation("postTransaction", postTr);
+export { useTransactionsGet, useTransactionDelete, useTransactionPost };
